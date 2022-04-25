@@ -23,12 +23,13 @@ function Header(props) {
           style={{
             overlay: {
               position: "fixed",
-              justifyContent: "center",
+              justifyContent: "right",
             },
             content: {
-              width: "100em",
-              height: "45em",
-              inset: "8.5em",
+              position: "absolute",
+              marginLeft: "67%",
+              width: "30%",
+              height: "100%",
             },
           }}
           isOpen={context.state.open}
