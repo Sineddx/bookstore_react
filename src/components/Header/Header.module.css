@@ -1,0 +1,14 @@
+.header{
+    height: 100px;
+    width: 98%;
+    display: flex;
+    padding-top: 2em;
+    padding-left: 2em;
+    justify-content:space-between;
+    
+}
+.text{
+    font-size:xx-large;
+    font-weight: bolder;
+    color:olive;
+}

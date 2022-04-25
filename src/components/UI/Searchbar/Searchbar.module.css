@@ -1,0 +1,22 @@
+.input{
+    width: 80%;
+    height: 50px;
+    border-radius: 18px;
+    border: none;
+    text-align: center;
+    margin: 1em;
+}
+.divs{
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.button12{
+    margin: 1em;
+    flex: 2;
+    width: 100px;
+    height: 50px;
+    border-radius: 50px;
+    border: none;
+    background-color: papayawhip;
+}

@@ -1,0 +1,11 @@
+.cart {
+    height: 3em;
+    width: 4em;
+    border-radius: 3em;
+}
+.modal {
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+}

@@ -1,0 +1,28 @@
+.background{
+    
+    height: 832px;
+   width: 100%;
+   margin-left: auto;
+   margin-right: auto;
+   background: url(../../assets/img/header.jpeg) center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.inputArea{
+    padding-top: 1em;
+    width: 60%;
+    height: 200px;
+    background-color: beige;
+    background: rgba(0,0,0, 0.2)
+}
+.text{
+   
+    display: flex;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    font-size: xx-large;
+    justify-content: center;
+    color:rgb(255,255,255);
+}

@@ -1,0 +1,11 @@
+.productCard{
+    flex: 1 20%;
+    padding: 0.2%;
+}
+.productImage img {
+    max-width: 100%;
+}
+
+.productInfo{
+    margin-top: auto;
+}
