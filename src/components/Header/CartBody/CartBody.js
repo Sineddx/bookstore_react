@@ -65,7 +65,9 @@ export default function CartBody(props) {
           </div>
         ))
       ) : (
-        <p className={styles.noItems}>Twój koszyk jest pusty</p>
+        <div className={styles.noItems}>
+          <p>Twój koszyk jest pusty.</p>
+        </div>
       )}
     </div>
   );
