@@ -4,7 +4,7 @@ export default function Books(props) {
   const books = [
     {
       id: 0,
-      title: "Harry Potter",
+      title: "Harry Potter i Kamień Filozoficzny",
       author: "JK Rowling",
       price: 29.99,
       desc: "interesting book",
@@ -12,7 +12,7 @@ export default function Books(props) {
     },
     {
       id: 1,
-      title: "Harry Potter 2",
+      title: "Harry Potter i Komnata Tajemnic",
       author: "JK Rowling",
       price: 33.55,
       desc: "interesting book",
@@ -20,7 +20,7 @@ export default function Books(props) {
     },
     {
       id: 2,
-      title: "Harry Potter 33",
+      title: "Harry Potter i Więzień Azkabanu",
       author: "JK Rowling",
       price: 11.11,
       desc: "interesting book",
@@ -28,7 +28,7 @@ export default function Books(props) {
     },
     {
       id: 3,
-      title: "Tokyo Revengers",
+      title: "Tokyo Revengers #5",
       author: "Ken Wakui",
       price: 17.99,
       desc: "interesting book",
@@ -36,27 +36,27 @@ export default function Books(props) {
     },
     {
       id: 4,
-      title: "Spy x Family",
+      title: "Spy x Family #6",
       author: "Tatsuya Endo",
       price: 15.99,
       desc: "interesting book",
-      img: `${process.env.PUBLIC_URL}/assets/img/5.jpg`,
+      img: `${process.env.PUBLIC_URL}/assets/img/sf6.jpg`,
     },
     {
       id: 5,
-      title: "Spy x Family",
+      title: "Spy x Family #7",
       author: "Tatsuya Endo",
       price: 15.99,
       desc: "interesting book",
-      img: `${process.env.PUBLIC_URL}/assets/img/5.jpg`,
+      img: `${process.env.PUBLIC_URL}/assets/img/sf7.jpg`,
     },
     {
       id: 6,
-      title: "Spy x Family",
+      title: "Spy x Family #8",
       author: "Tatsuya Endo",
       price: 15.99,
       desc: "interesting book",
-      img: `${process.env.PUBLIC_URL}/assets/img/5.jpg`,
+      img: `${process.env.PUBLIC_URL}/assets/img/sf8.jpg`,
     },
   ];
   const ifTerm = () => {
@@ -72,7 +72,9 @@ export default function Books(props) {
 
   return (
     <div className="container">
-      <div className="row">{props.term ? ifTerm() : ifNoTerm()}</div>
+      <div className={`row ${styles.row}`}>
+        {props.term ? ifTerm() : ifNoTerm()}
+      </div>
     </div>
   );
 }

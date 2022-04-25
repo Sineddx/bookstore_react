@@ -1,11 +1,55 @@
-.productCard{
-    flex: 1 20%;
-    padding: 0.2%;
-}
-.productImage img {
-    max-width: 100%;
+.item{
+    flex: 0 0 20%;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
 }
 
-.productInfo{
-    margin-top: auto;
+.new{
+    border-radius: 2em;
+    position: absolute;
+    height: 5%;
+    width: 25%;
+    top:5%;
+    left: 8%;
+    background-color:crimson;
+    display: flex;
+    justify-content: center;
+}
+.new p{
+font-size: 1.1em;
+color: gold;
+}
+.divImage{
+    box-shadow: 0 0 1em gold;
+    margin-top: 2em
+}
+
+.image{ 
+    height: 350px;
+}
+.details{
+    margin-top: 0.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.titleBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5em;
+    width: 15em;
+}
+.divButton{
+    display: flex;
+    justify-content: center;
+    padding-top: 0.9em;
+}
+.btn{
+    height: 2em;
+    border: none;
+    border-radius: 3em;
+    background-color: crimson;
+    color: wheat;
 }
