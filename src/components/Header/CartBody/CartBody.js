@@ -5,14 +5,14 @@ export default function CartBody(props) {
   const context = useContext(ReducerContext);
   const addQuantity = (item) => {
     let cartCopy = [...context.state.cart];
-    let existingItem = cartCopy.find((cartItem) => cartItem.id == item.id);
+    let existingItem = cartCopy.find((cartItem) => cartItem.id === item.id);
     existingItem.quantity += 1;
     context.dispatch({ type: "ADD_TO_CART", cart: cartCopy });
     localStorage.setItem("cart", JSON.stringify(cartCopy));
   };
   const subtractQuantity = (item) => {
     let cartCopy = [...context.state.cart];
-    let existingItem = cartCopy.find((cartItem) => cartItem.id == item.id);
+    let existingItem = cartCopy.find((cartItem) => cartItem.id === item.id);
     existingItem.quantity -= 1;
     if (existingItem.quantity < 1) {
       cartCopy = cartCopy.filter((cartItem) => cartItem.id !== item.id);
@@ -36,7 +36,11 @@ export default function CartBody(props) {
         context.state.cart.map((item) => (
           <div className={styles.cartItems} key={item.id}>
             <div className={styles.img}>
-              <img src={item.img} style={{ height: "120px" }}></img>
+              <img
+                src={item.img}
+                style={{ height: "120px" }}
+                alt={item.title}
+              ></img>
             </div>
             <div className={styles.details}>
               <h1 className={styles.title}>{item.title}</h1>

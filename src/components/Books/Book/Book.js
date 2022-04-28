@@ -4,9 +4,6 @@ import ReducerContext from "../../../context/reducerContext";
 import { toast } from "react-toastify";
 export default function Book(props) {
   const context = useContext(ReducerContext);
-  const clickHandler = (e) => {
-    console.log(props);
-  };
 
   const addToCart = (item) => {
     let cartCopy = [...context.state.cart];
@@ -19,7 +16,7 @@ export default function Book(props) {
       img: item.img,
     };
     console.log(cartCopy);
-    let existingItem = cartCopy.find((cartItem) => cartItem.id == obj.id);
+    let existingItem = cartCopy.find((cartItem) => cartItem.id === obj.id);
     if (existingItem) {
       existingItem.quantity += obj.quantity;
     } else {
@@ -42,7 +39,7 @@ export default function Book(props) {
         <p>Nowość</p>
       </div>
       <div className={styles.divImage}>
-        <img className={styles.image} src={props.img}></img>
+        <img className={styles.image} src={props.image} alt={props.title}></img>
       </div>
       <div className={styles.details}>
         <div className={styles.titleBox}>
@@ -63,7 +60,7 @@ export default function Book(props) {
             width="16"
             height="16"
             fill="currentColor"
-            class="bi bi-cart"
+            className="bi bi-cart"
             viewBox="0 0 16 16"
           >
             <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />

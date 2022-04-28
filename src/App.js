@@ -28,7 +28,7 @@ function App() {
     <Router>
       <ReducerContext.Provider value={{ state, dispatch }}>
         <Layout header={header} content={content} footer={footer} />
-        <ToastContainer  />
+        <ToastContainer />
       </ReducerContext.Provider>
     </Router>
   );

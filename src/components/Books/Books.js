@@ -1,64 +1,21 @@
 import Book from "./Book/Book";
 import styles from "./Books.module.css";
+import db from "../../firebase";
+import { useEffect, useState } from "react";
+import { collection, getDocs } from "firebase/firestore/lite";
 export default function Books(props) {
-  const books = [
-    {
-      id: 0,
-      title: "Harry Potter i Kamień Filozoficzny",
-      author: "JK Rowling",
-      price: 29.99,
-      desc: "interesting book",
-      img: `${process.env.PUBLIC_URL}/assets/img/hp1.jpg`,
-    },
-    {
-      id: 1,
-      title: "Harry Potter i Komnata Tajemnic",
-      author: "JK Rowling",
-      price: 33.55,
-      desc: "interesting book",
-      img: `${process.env.PUBLIC_URL}/assets/img/hp2.jpg`,
-    },
-    {
-      id: 2,
-      title: "Harry Potter i Więzień Azkabanu",
-      author: "JK Rowling",
-      price: 11.11,
-      desc: "interesting book",
-      img: `${process.env.PUBLIC_URL}/assets/img/hp3.jpg`,
-    },
-    {
-      id: 3,
-      title: "Tokyo Revengers #5",
-      author: "Ken Wakui",
-      price: 17.99,
-      desc: "interesting book",
-      img: `${process.env.PUBLIC_URL}/assets/img/4.jpg`,
-    },
-    {
-      id: 4,
-      title: "Spy x Family #6",
-      author: "Tatsuya Endo",
-      price: 15.99,
-      desc: "interesting book",
-      img: `${process.env.PUBLIC_URL}/assets/img/sf6.jpg`,
-    },
-    {
-      id: 5,
-      title: "Spy x Family #7",
-      author: "Tatsuya Endo",
-      price: 15.99,
-      desc: "interesting book",
-      img: `${process.env.PUBLIC_URL}/assets/img/sf7.jpg`,
-    },
-    {
-      id: 6,
-      title: "Spy x Family #8",
-      author: "Tatsuya Endo",
-      price: 15.99,
-      desc: "interesting book",
-      img: `${process.env.PUBLIC_URL}/assets/img/sf8.jpg`,
-    },
-  ];
+  const [books, setBooks] = useState([]);
+
+  useEffect(() => {
+    async function getBooks() {
+      const booksCol = collection(db, "books");
+      const bookSnapshot = await getDocs(booksCol);
+      const bookList = bookSnapshot.docs.map((doc) => ( doc.data()));
+      setBooks(bookList);
+    }
+    getBooks();
+  }, []);
+
   const ifTerm = () => {
     const newBooks = books.filter((book) =>
       book.title.toUpperCase().includes(props.term.toUpperCase())
