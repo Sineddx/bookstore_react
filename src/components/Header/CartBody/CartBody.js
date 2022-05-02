@@ -1,25 +1,9 @@
 import styles from "./CartBody.module.css";
 import { useContext } from "react";
 import ReducerContext from "../../../context/reducerContext";
+import modifyCart from "../../../helpers/cartHelper";
 export default function CartBody(props) {
   const context = useContext(ReducerContext);
-  const addQuantity = (item) => {
-    let cartCopy = [...context.state.cart];
-    let existingItem = cartCopy.find((cartItem) => cartItem.id === item.id);
-    existingItem.quantity += 1;
-    context.dispatch({ type: "ADD_TO_CART", cart: cartCopy });
-    localStorage.setItem("cart", JSON.stringify(cartCopy));
-  };
-  const subtractQuantity = (item) => {
-    let cartCopy = [...context.state.cart];
-    let existingItem = cartCopy.find((cartItem) => cartItem.id === item.id);
-    existingItem.quantity -= 1;
-    if (existingItem.quantity < 1) {
-      cartCopy = cartCopy.filter((cartItem) => cartItem.id !== item.id);
-    }
-    context.dispatch({ type: "ADD_TO_CART", cart: cartCopy });
-    localStorage.setItem("cart", JSON.stringify(cartCopy));
-  };
 
   return (
     <div className={styles.main}>
@@ -52,7 +36,7 @@ export default function CartBody(props) {
             <div className={styles.counter}>
               <div
                 type="button"
-                onClick={() => subtractQuantity(item)}
+                onClick={() => modifyCart(item, "MINUS", context)}
                 className={styles.btn}
               >
                 -
@@ -60,7 +44,7 @@ export default function CartBody(props) {
               <div className={styles.count}>{item.quantity}</div>
               <div
                 type="button"
-                onClick={() => addQuantity(item)}
+                onClick={() => modifyCart(item, "PLUS", context)}
                 className={styles.btn}
               >
                 +

@@ -4,7 +4,7 @@ export const reducer = (state, action) => {
       return { ...state, open: true };
     case "CLOSE_MODAL":
       return { ...state, open: false };
-    case "ADD_TO_CART":
+    case "MODIFY_CART":
       return { ...state, cart: action.cart };
     default:
       throw new Error();

@@ -2,28 +2,20 @@ import { useContext } from "react";
 import styles from "./Book.module.css";
 import ReducerContext from "../../../context/reducerContext";
 import { toast } from "react-toastify";
+import modifyCart from "../../../helpers/cartHelper";
 export default function Book(props) {
   const context = useContext(ReducerContext);
 
   const addToCart = (item) => {
-    let cartCopy = [...context.state.cart];
     let obj = {
       id: item.id,
       title: item.title,
       author: item.author,
       price: item.price,
       quantity: 1,
-      img: item.img,
+      img: item.image,
     };
-    console.log(cartCopy);
-    let existingItem = cartCopy.find((cartItem) => cartItem.id === obj.id);
-    if (existingItem) {
-      existingItem.quantity += obj.quantity;
-    } else {
-      cartCopy.push(obj);
-    }
-    context.dispatch({ type: "ADD_TO_CART", cart: cartCopy });
-    localStorage.setItem("cart", JSON.stringify(cartCopy));
+    modifyCart(obj, "ADD", context);
     showNotification();
   };
   const showNotification = () => {

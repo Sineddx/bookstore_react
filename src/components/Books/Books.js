@@ -10,7 +10,7 @@ export default function Books(props) {
     async function getBooks() {
       const booksCol = collection(db, "books");
       const bookSnapshot = await getDocs(booksCol);
-      const bookList = bookSnapshot.docs.map((doc) => ( doc.data()));
+      const bookList = bookSnapshot.docs.map((doc) => doc.data());
       setBooks(bookList);
     }
     getBooks();
