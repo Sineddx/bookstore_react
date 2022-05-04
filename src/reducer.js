@@ -1,16 +1,17 @@
 export const reducer = (state, action) => {
   switch (action.type) {
-    case "OPEN_MODAL":
-      return { ...state, open: true };
-    case "CLOSE_MODAL":
-      return { ...state, open: false };
     case "MODIFY_CART":
       return { ...state, cart: action.cart };
+    case "LOGIN":
+      return { ...state, user: action.user };
+    case "LOGOUT":
+      window.localStorage.removeItem("token-data");
+      return { ...state, user: null };
     default:
       throw new Error();
   }
 };
 export const initialState = {
-  open: false,
+  user: JSON.parse(window.localStorage.getItem("token-data")) ?? null,
   cart: JSON.parse(localStorage.getItem("cart")) ?? [],
 };

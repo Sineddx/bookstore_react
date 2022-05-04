@@ -1,7 +1,7 @@
 import styles from "./CartBody.module.css";
 import { useContext } from "react";
-import ReducerContext from "../../../context/reducerContext";
-import modifyCart from "../../../helpers/cartHelper";
+import ReducerContext from "../../../../context/reducerContext";
+import modifyCart from "../../../../helpers/cartHelper";
 export default function CartBody(props) {
   const context = useContext(ReducerContext);
 
@@ -9,10 +9,7 @@ export default function CartBody(props) {
     <div className={styles.main}>
       <div className={styles.header}>
         <label className={styles.label}>Koszyk</label>
-        <button
-          className={styles.close}
-          onClick={() => context.dispatch({ type: "CLOSE_MODAL" })}
-        >
+        <button className={styles.close} onClick={() => props.setShow(false)}>
           X
         </button>
       </div>

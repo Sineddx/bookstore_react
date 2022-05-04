@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import ReducerContext from "../../../context/reducerContext";
+import ReducerContext from "../../../../context/reducerContext";
 import styles from "./CartButton.module.css";
 
 export default function Cart(props) {
@@ -14,10 +14,7 @@ export default function Cart(props) {
   };
   return (
     <>
-      <button
-        className={styles.cart}
-        onClick={() => context.dispatch({ type: "OPEN_MODAL" })}
-      >
+      <button className={styles.cart} onClick={() => props.setShow(true)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"

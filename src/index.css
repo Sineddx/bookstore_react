@@ -11,15 +11,35 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.ReactModal__Overlay {
+
+.ReactModal__Overlay #cartmodal {
   opacity: 0;
-  transition: opacity 333ms ease-in-out;
+  transform: translateX(100px);
+  transition: all 333ms ease-in-out;
 }
 
-.ReactModal__Overlay--after-open {
+ .ReactModal__Overlay--after-open #cartmodal {
   opacity: 1;
+  transform: translateX(0px);
 }
 
-.ReactModal__Overlay--before-close {
+ .ReactModal__Overlay--before-close #cartmodal {
   opacity: 0;
+  transform: translateX(100px);
+} 
+
+.ReactModal__Overlay #authModal {
+  opacity: 0;
+  transform: translateY(-200px);
+  transition: all 333ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open #authModal {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.ReactModal__Overlay--before-close #authModal {
+  opacity: 0;
+  transform: translateY(-200px);
 }

@@ -1,0 +1,33 @@
+.main{
+    margin-top: 3%;
+    display: flex;
+    justify-content: space-between;
+
+    
+}
+.loginPanel{
+
+background: rgba(255,255,255, 0.8);
+    width: 50%;
+}
+.registerPanel{
+    margin-left: 1em;
+    background: rgba(255, 255, 255, 0.8);
+
+    width: 50%;
+}
+.banner{
+    margin-top: 0.4rem;
+    display: flex;
+    justify-content: center;
+}
+.banner  h2{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 800;
+    font-style: italic;
+    color: olive
+}
+.formContent{
+    justify-content: center;
+    align-items: center;
+}

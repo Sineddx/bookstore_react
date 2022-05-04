@@ -27,11 +27,14 @@ export default function Book(props) {
   };
   return (
     <div type="button" className={styles.item}>
-      <div className={styles.new}>
+      {/* <div className={styles.new}>
         <p>Nowość</p>
-      </div>
+      </div> */}
       <div className={styles.divImage}>
         <img className={styles.image} src={props.image} alt={props.title}></img>
+        <div className={styles.new}>
+          <p>Nowość</p>
+        </div>
       </div>
       <div className={styles.details}>
         <div className={styles.titleBox}>

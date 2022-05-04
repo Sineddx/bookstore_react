@@ -1,0 +1,13 @@
+.modalOverlay{
+    opacity: 0;
+    transform: translateX(100px);
+    transition: all 333ms ease-in-out;
+}
+.modalAfterOpen{
+    opacity: 1;
+    transform: translateX(0px);
+}
+.modalBeforeClose{
+    opacity: 0;
+    transform: translateX(100px);
+}

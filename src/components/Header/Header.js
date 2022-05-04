@@ -1,45 +1,34 @@
 import styles from "./Header.module.css";
 import { useNavigate } from "react-router-dom";
-import CartButton from "./CartButton/CartButton";
-import { useContext } from "react";
+import CartModal from "../Modals/CartModal/CartModal";
+import AuthModal from "../Modals/AuthModal/AuthModal";
 import ReducerContext from "../../context/reducerContext";
-import Modal from "react-modal";
-import CartBody from "./CartBody/CartBody";
+import { useContext } from "react";
+
 function Header(props) {
   const context = useContext(ReducerContext);
   const history = useNavigate();
   const clickHandler = () => {
     history("/");
   };
-
   return (
     <header className={styles.header}>
       <p className={styles.text} type="button" onClick={clickHandler}>
         Książkarnia
       </p>
-
-      <div className={styles.modalSpec}>
-        <Modal
-          style={{
-            overlay: {
-              position: "fixed",
-              justifyContent: "right",
-            },
-            content: {
-              position: "absolute",
-              marginLeft: "67%",
-              width: "30%",
-              height: "100%",
-            },
-          }}
-          isOpen={context.state.open}
-          ariaHideApp={false}
-          onRequestClose={() => context.dispatch({ type: "CLOSE_MODAL" })}
-        >
-          <CartBody />
-        </Modal>
+      <div className={styles.userPanel}>
+        {context.state.user ? (
+          <>
+            {context.state.user.email}
+            <button onClick={() => context.dispatch({ type: "LOGOUT" })}>
+              Wyloguj
+            </button>
+          </>
+        ) : (
+          <AuthModal />
+        )}
+        <CartModal />
       </div>
-      <CartButton />
     </header>
   );
 }

@@ -10,7 +10,7 @@
     position: absolute;
     height: 5%;
     width: 28%;
-    top:5%;
+    top:6.5%;
     left: 8%;
     background-color:crimson;
     display: flex;
@@ -21,17 +21,18 @@ font-size: 1.1em;
 color: gold;
 }
 .divImage{
-    box-shadow: 0 0 1em gold;
-    margin-top: 2em
+    box-shadow: 0 0 1.3em gold;
+    margin-top: 2em;
 }
 
 .image{ 
     height: 350px;
-    
 }
 .divImage :hover{
-    transform: scale(1.1);
+    transform: scale(1.03);
+    transition: transform 333ms ease;
 }
+
 
 .details{
     margin-top: 0.5em;

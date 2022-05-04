@@ -12,7 +12,7 @@
     font-weight: bolder;
     color:olive;
 }
-.modalSpec{
-   
-    
+.userPanel{
+    display: flex;
+    flex-direction: row;
 }
