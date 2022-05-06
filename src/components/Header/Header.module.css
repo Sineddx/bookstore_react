@@ -15,4 +15,9 @@
 .userPanel{
     display: flex;
     flex-direction: row;
+} 
+.logout{
+    height: 3em;
+    width: 4em;
+    border-radius: 3em;
 }

@@ -2,27 +2,13 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { useFormik } from "formik";
 import styles from "./LoginForm.module.css";
 import { getAuth } from "firebase/auth";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import ReducerContext from "../../../context/reducerContext";
 import { useNavigate } from "react-router-dom";
-const validate = (values) => {
-  const errors = {};
+import validate from "../../../helpers/validator";
 
-  if (!values.password) {
-    errors.password = "";
-  } else if (values.password.length < 6) {
-    errors.password = "Minimum 6 znaków";
-  }
-
-  if (!values.email) {
-    errors.email = "";
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-    errors.email = "Nieprawidłowy email";
-  }
-
-  return errors;
-};
 const LoginForm = () => {
+  const [invalid, setInvalid] = useState("");
   const history = useNavigate();
   const context = useContext(ReducerContext);
   const formik = useFormik({
@@ -41,7 +27,7 @@ const LoginForm = () => {
           history("/");
         })
         .catch((error) => {
-          console.log("dane nieprawidłowe");
+          setInvalid("Błędne dane logowania");
         });
     },
   });
@@ -74,6 +60,7 @@ const LoginForm = () => {
         />
         <div className={styles.errors}>
           {formik.errors.password ? <h6>{formik.errors.password}</h6> : null}
+          {invalid ? <h6> {invalid}</h6> : null}
         </div>
       </div>
 

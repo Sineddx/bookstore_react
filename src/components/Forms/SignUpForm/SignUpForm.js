@@ -2,26 +2,10 @@ import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import { useFormik } from "formik";
 import context from "react-bootstrap/esm/AccordionContext";
 import styles from "./SignUpForm.module.css";
-
-const validate = (values) => {
-  const errors = {};
-
-  if (!values.password) {
-    errors.password = "";
-  } else if (values.password.length < 6) {
-    errors.password = "Minimum 6 znaków";
-  }
-
-  if (!values.email) {
-    errors.email = "";
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-    errors.email = "Nieprawidłowy email";
-  }
-
-  return errors;
-};
-
+import validate from "../../../helpers/validator";
+import { useState } from "react";
 const SignUpForm = () => {
+  const [invalid, setInvalid] = useState("");
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -37,9 +21,7 @@ const SignUpForm = () => {
           context.dispatch({ type: "LOGIN", user: user });
         })
         .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          console.log(errorMessage);
+          setInvalid("Mail jest już w bazie!");
         });
     },
   });
@@ -71,6 +53,7 @@ const SignUpForm = () => {
         />
         <div className={styles.errors}>
           {formik.errors.password ? <h6>{formik.errors.password}</h6> : null}
+          {invalid ? <h6>{invalid}</h6> : null}
         </div>
       </div>
 
